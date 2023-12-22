@@ -16,10 +16,10 @@ const theme = {
 
 <template lang="pug">
 a-config-provider(:theme="theme")
-  a-row(:style="{ height: '100vh' }" :gutter="24" align="middle")
-    a-col(:span="10")
+  a-row(:style="{ height: '100vh', padding: '24px' }" :gutter="24" align="middle")
+    a-col(:span="24" :xl="10")
       WrapperHeader
 
-    a-col(:span="14" :style="{textAlign: 'justify'}")
+    a-col(:span="24" :xl="14" :style="{textAlign: 'justify'}")
       RouterView
 </template>

@@ -37,7 +37,7 @@ const projects = ref([
 </script>
 
 <template lang="pug">
-a-row.projects(:gutter="24")
+a-row.projects(:gutter="[24, 24]")
   a-col(:span="12" v-for="item in projects")
     a-card
       template(#cover)

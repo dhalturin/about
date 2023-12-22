@@ -89,9 +89,9 @@ githubGetEvents('dhalturin')
 
 <template lang="pug">
 a-row(align="middle" style="margin-bottom: 2em")
-  a-col(:span="10" align="center")
+  a-col(:span="24" :md="10" align="center")
     img(class="photo" src="@/assets/photo.jpeg" width="180" height="180")
-  a-col(:span="14")
+  a-col(:span="24" :md="14")
     a-row(align="middle")
       a-col(:span="24")
         h1(class="green") Hello.
@@ -102,7 +102,7 @@ a-row(align="middle" style="margin-bottom: 2em")
         a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
 
 a-row(:gutter="[3, 3]")
-  a-col.github(:span="14" align="center")
+  a-col.github(:span="24" :md="14" align="center")
     a-spin(:spinning="spinning")
       a(href="https://github.com/dhalturin" target="_blank")
         a-card
@@ -112,7 +112,7 @@ a-row(:gutter="[3, 3]")
             a-col(:span="18")
               calendar-heatmap(:end-date="endDate", :values="heatmapValues", :round="2", :tooltip="false", :range-color="rangeColor")
 
-  a-col(:span="10")
+  a-col(:span="24" :md="10")
     a-row.tiles(:gutter="[3, 3]")
       a-col(:span="12" align="center")
         a(href="mailto:danhalturin@gmail.com")
@@ -152,6 +152,7 @@ a-row(:gutter="[3, 3]")
 }
 
 .ant-row {
+
   .github,
   .tiles {
     a {

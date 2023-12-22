@@ -10,3 +10,13 @@ p
   | enjoy video games (Stronghold Crusader & Call of Duty are my favorite), Japanese and Chinese food, 
   | American football (for a long time I played in St. Petersburg and played for the Russian national team).
 </template>
+
+<style scoped lang="scss">
+@media (max-width: 700px) {
+  p {
+    &:first-child {
+      margin-top: 20px;
+    }
+  }
+}
+</style>
