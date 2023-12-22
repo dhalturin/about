@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-app:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           key: ${{ runner.os }}-${{ github.run_id }}-dist
 
   deploy-app:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: build-app
 
     steps:
