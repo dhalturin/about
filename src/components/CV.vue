@@ -19,6 +19,12 @@ const companies = ref([
     role: 'DevOps engineer',
     site: '3commas.io',
     title: '3Commas',
+    tags: [
+      'aws',
+      'golang',
+      'kubernets',
+      'terraform',
+    ]
   },
   {
     dateEnd: '2022-04-01',
@@ -28,6 +34,20 @@ const companies = ref([
     role: 'DevOps engineer',
     site: 'incountry.com',
     title: 'InCountry',
+    tags: [
+      'alicloud',
+      'ansible',
+      'aws',
+      'groovy',
+      'jenkins',
+      'nginx',
+      'nomad',
+      'packer',
+      'saltstack',
+      'terraform',
+      'travis-ci',
+      'yandexcloud',
+    ]
   },
   {
     dateEnd: '2020-02-01',
@@ -37,6 +57,19 @@ const companies = ref([
     role: 'Linux System Administrator',
     site: 'iqoption.com',
     title: 'IQ Option',
+    tags: [
+      'ansible',
+      'gitlab',
+      'golang',
+      'grafana',
+      'kapacitor',
+      'lxc',
+      'lxd',
+      'maas',
+      'nginx',
+      'postgresql',
+      'vuejs',
+    ]
   },
   {
     dateEnd: '2017-09-01',
@@ -46,6 +79,22 @@ const companies = ref([
     role: 'Linux System Administrator',
     site: 'propellerads.com',
     title: 'PropellerAds',
+    tags: [
+      'ansible',
+      'bash',
+      'centos',
+      'chef',
+      'collectd',
+      'grafana',
+      'influxdb',
+      'kapacitor',
+      'kickstart',
+      'nginx',
+      'preseed',
+      'teamcity',
+      'telegraf',
+      'ubuntu',
+    ],
   },
   {
     dateEnd: '2016-11-01',
@@ -55,6 +104,13 @@ const companies = ref([
     role: 'Developer',
     site: 'clodo.ru',
     title: 'Cloud hosting clodo.ru',
+    tags: [
+      '1c',
+      'bash',
+      'javascript',
+      'mysql',
+      'php',
+    ],
   },
   {
     dateEnd: '2015-08-01',
@@ -64,6 +120,14 @@ const companies = ref([
     role: 'Linux System Administrator',
     site: 'clodo.ru',
     title: 'Cloud hosting clodo.ru',
+    tags: [
+      'apache',
+      'bash',
+      'exim',
+      'kvm',
+      'mysql',
+      'nginx',
+    ],
   },
 ])
 </script>
@@ -81,4 +145,5 @@ CompanyItem(v-for="item in companies")
       | {{ moment(item.dateStart).format('MMM YYYY') }} - {{ item.dateEnd && moment(item.dateEnd).format('MMM YYYY') || '...' }}
 
   div {{ item.desc }}
+  span(v-for="(tag, idx) in item.tags") \#{{ tag + "" + ((idx !== item.tags.length -1) && ', ' || '') }}
 </template>
