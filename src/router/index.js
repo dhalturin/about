@@ -21,4 +21,21 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from) => {
+  let fallback = sessionStorage.getItem('fallback')
+
+  if (fallback && fallback !== location.href) {
+    fallback = new URL(fallback)
+
+    const base = import.meta.env.BASE_URL //.replace(/.$/, '')
+    const path = fallback.pathname.replace(base, '')
+
+    sessionStorage.removeItem('fallback')
+
+    return path
+  }
+
+  return true
+})
+
 export default router
