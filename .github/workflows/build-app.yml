@@ -1,0 +1,44 @@
+name: build & push image
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build-app:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.13"
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ runner.os }}-${{ github.run_id }}-dist
+
+  deploy-app:
+    runs-on: self-hosted
+    needs: build-app
+
+    steps:
+      - uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ runner.os }}-${{ github.run_id }}-dist
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          keep_files: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
