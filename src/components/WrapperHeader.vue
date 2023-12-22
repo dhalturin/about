@@ -88,59 +88,60 @@ githubGetEvents('dhalturin')
 </script>
 
 <template lang="pug">
-a-row(align="middle" style="margin-bottom: 2em")
-  a-col(:span="24" :md="10" align="center")
-    img(class="photo" src="@/assets/photo.jpeg" width="180" height="180")
-  a-col(:span="24" :md="14")
-    a-row(align="middle")
-      a-col(:span="24")
-        h1(class="green") Hello.
-        p(style="font-size: 1.1em") My name is Denis Khalturin.
+div.header
+  a-row(align="middle" style="margin-bottom: 20px")
+    a-col(:span="24" :md="10" align="center")
+      img(class="photo" src="@/assets/photo.jpeg" width="180" height="180")
+    a-col(:span="24" :md="14")
+      a-row(align="middle")
+        a-col(:span="24")
+          h1(class="green") Hello.
+          p(style="font-size: 1.1em") My name is Denis Khalturin.
 
-    a-row(align="middle")
-      a-col(:span="24")
-        a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
+      a-row(align="middle")
+        a-col(:span="24")
+          a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
 
-a-row(:gutter="[3, 3]")
-  a-col.github(:span="24" :md="14" align="center")
-    a-spin(:spinning="spinning")
-      a(href="https://github.com/dhalturin" target="_blank")
-        a-card
-          a-row(align="middle")
-            a-col(:span="6")
-              github-outlined(:style="{fontSize: '1.5em', color: '#222'}")
-            a-col(:span="18")
-              calendar-heatmap(:end-date="endDate", :values="heatmapValues", :round="2", :tooltip="false", :range-color="rangeColor")
-
-  a-col(:span="24" :md="10")
-    a-row.tiles(:gutter="[3, 3]")
-      a-col(:span="12" align="center")
-        a(href="mailto:danhalturin@gmail.com")
+  a-row(:gutter="[3, 3]")
+    a-col.github(:span="24" :md="14" align="center")
+      a-spin(:spinning="spinning")
+        a(href="https://github.com/dhalturin" target="_blank")
           a-card
             a-row(align="middle")
-              a-col(:span="24")
-                gmail-icon
+              a-col(:span="6")
+                github-outlined(:style="{fontSize: '1.5em', color: '#222'}")
+              a-col(:span="18")
+                calendar-heatmap(:end-date="endDate", :values="heatmapValues", :round="2", :tooltip="false", :range-color="rangeColor")
 
-      a-col(:span="12" align="center")
-        a(href="https://linkedin.com/in/dhalturin/" target="_blank")
-          a-card
-            a-row(align="middle")
-              a-col(:span="24")
-                linkedin-outlined(:style="{fontSize: '1.2em', color: '#4A9DE4'}")
+    a-col(:span="24" :md="10")
+      a-row.tiles(:gutter="[3, 3]")
+        a-col(:span="12" align="center")
+          a(href="mailto:danhalturin@gmail.com")
+            a-card
+              a-row(align="middle")
+                a-col(:span="24")
+                  gmail-icon
 
-      a-col(:span="12" align="center")
-        a(href="https://t.me/dhalturin" target="_blank")
-          a-card
-            a-row(align="middle")
-              a-col(:span="24")
-                telegram-icon
+        a-col(:span="12" align="center")
+          a(href="https://linkedin.com/in/dhalturin/" target="_blank")
+            a-card
+              a-row(align="middle")
+                a-col(:span="24")
+                  linkedin-outlined(:style="{fontSize: '1.2em', color: '#4A9DE4'}")
 
-      a-col(:span="12" align="center")
-        a(href="https://instagram.com/dhalturin" target="_blank")
-          a-card
-            a-row(align="middle")
-              a-col(:span="24")
-                instagram-outlined(:style="{fontSize: '1.2em', color: '#E44A90'}")
+        a-col(:span="12" align="center")
+          a(href="https://t.me/dhalturin" target="_blank")
+            a-card
+              a-row(align="middle")
+                a-col(:span="24")
+                  telegram-icon
+
+        a-col(:span="12" align="center")
+          a(href="https://instagram.com/dhalturin" target="_blank")
+            a-card
+              a-row(align="middle")
+                a-col(:span="24")
+                  instagram-outlined(:style="{fontSize: '1.2em', color: '#E44A90'}")
 </template>
 
 <style lang="scss" scoped>
@@ -149,6 +150,16 @@ a-row(:gutter="[3, 3]")
   border: 1px solid #aaa;
   background-color: #fff;
   padding: 2px;
+}
+
+.header {
+  margin-right: 24px;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    margin-right: 0;
+  }
 }
 
 .ant-row {

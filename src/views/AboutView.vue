@@ -12,7 +12,7 @@ p
 </template>
 
 <style scoped lang="scss">
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   p {
     &:first-child {
       margin-top: 20px;

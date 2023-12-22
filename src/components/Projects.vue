@@ -37,7 +37,7 @@ const projects = ref([
 </script>
 
 <template lang="pug">
-a-row.projects(:gutter="[24, 24]")
+a-row.projects
   a-col(:span="12" v-for="item in projects")
     a-card
       template(#cover)
@@ -55,21 +55,25 @@ a-row.projects(:gutter="[24, 24]")
 
 <style lang="scss">
 .projects {
-  .ant-card-cover {
-    padding: 1px;
-    max-height: 90px;
-    overflow: hidden;
-  }
+  .ant-card {
+    margin: 6px 12px;
 
-  .ant-card-meta-detail {
-    .ant-card-meta-title {
-      font-size: 20px;
-      font-weight: 600;
+    .ant-card-cover {
+      padding: 1px;
+      max-height: 90px;
+      overflow: hidden;
     }
 
-    .ant-card-meta-description {
-      font-size: 15px;
-      color: var(--color-text);
+    .ant-card-meta-detail {
+      .ant-card-meta-title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .ant-card-meta-description {
+        font-size: 15px;
+        color: var(--color-text);
+      }
     }
   }
 }

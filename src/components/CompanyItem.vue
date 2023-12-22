@@ -42,7 +42,7 @@ h3 {
   color: var(--color-heading);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .item {
     margin-left: 0;
 

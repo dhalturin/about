@@ -1,10 +1,10 @@
 @import './fonts.scss';
 @import './base.scss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-}
+// #app {
+//   max-width: 1280px;
+//   margin: 24px;
+// }
 
 .green {
   text-decoration: none;
@@ -41,7 +41,7 @@ p {
   font-size: .9em;
   line-height: 1.8;
   // max-width: 30em;
-  padding: 0 0 .8em;
+  padding: 0 0 20px;
 
   &:last-child {
     padding: 0;
@@ -125,6 +125,12 @@ a:hover:after {
 }
 
 .ant-menu-horizontal {
+  border-bottom: 0;
+
+  * {
+    font-size: 16px;
+  }
+
   .ant-menu-item {
     &:first-child {
       padding-inline-start: 0;
@@ -132,14 +138,8 @@ a:hover:after {
       &::after {
         inset-inline-start: 0;
       }
-
-      // display: none;
     }
   }
-}
-
-.ant-menu-horizontal {
-  border-bottom: 0;
 }
 
 .ant-card {
