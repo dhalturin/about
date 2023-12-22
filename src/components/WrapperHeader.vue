@@ -23,17 +23,17 @@ const route = useRoute()
 const items = ref([
   {
     icon: () => h(UserOutlined),
-    key: '/about/',
+    key: '/',
     label: 'About me',
   },
   {
     icon: () => h(AuditOutlined),
-    key: '/about/cv/',
+    key: '/cv/',
     label: 'CV',
   },
   {
     icon: () => h(AppstoreOutlined),
-    key: '/about/projects/',
+    key: '/projects/',
     label: 'Projects',
   },
 ]);
