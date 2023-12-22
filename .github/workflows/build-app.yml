@@ -1,9 +1,7 @@
 name: build & push image
 
 on:
-  push:
-    tags:
-      - "*"
+  - push
 
 jobs:
   build-app:
