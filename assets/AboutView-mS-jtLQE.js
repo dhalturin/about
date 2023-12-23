@@ -1,1 +1,0 @@
-import{o,c as n,a as e,t,F as r,_ as s}from"./index-EkHdXU4Y.js";function c(a,u){return o(),n(r,null,[e("p",null,t(a.$t("about_1")),1),e("p",null,t(a.$t("about_2")),1)],64)}const l={},p=s(l,[["render",c],["__scopeId","data-v-19aba097"]]);export{p as default};
