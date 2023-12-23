@@ -1,14 +1,16 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import coverOpsgin from '@/assets/opsgin.png'
 import coverUiVmm from '@/assets/ui-vmm.jpg'
 
+const { t } = useI18n()
 
 const projects = ref([
   {
     name: 'opsgin',
-    desc: 'Utility for integrating on-duty Opsgenie and Slack',
+    desc: t('opsgin'),
     cover: coverOpsgin,
     links: [
       { text: 'Repository', url: 'https://github.com/slack-utils/opsgin' },
@@ -17,19 +19,19 @@ const projects = ref([
   },
   {
     name: 'ui-vmm',
-    desc: 'A convenient control panel for working with LXC containers via message transmission to GRPC providers',
+    desc: t('uivmm'),
     cover: coverUiVmm,
     links: [
-      { text: 'Information', url: 'https://ui-vmm.github.io' },
-      { text: 'Demo', url: 'https://ui-vmm.github.io/demo' },
+      { text: t('site'), url: 'https://ui-vmm.github.io' },
+      { text: t('demo'), url: 'https://ui-vmm.github.io/demo' },
     ],
     tags: ['golang', 'vuejs', 'grpc']
   },
   {
     name: 'SSHPass',
-    desc: 'A fork of wonderful utility with added support of prompt for TOTP and Ansible',
+    desc: t('sshpass'),
     links: [
-      { text: 'Repository', url: 'https://github.com/dhalturin/sshpass' },
+      { text: t('repo'), url: 'https://github.com/dhalturin/sshpass' },
     ],
     tags: ['c']
   },
@@ -47,8 +49,11 @@ a-row.projects
         template(#description)
           div {{ item.desc }}
 
+          a-divider(dashed)
+
           span(v-for="(link, idx) in item.links")
-            a(:href="link.url" target="_blank") {{ link.text + "" + ((idx !== item.links.length -1) && ', ' || '') }}
+            a(:href="link.url" target="_blank") {{ link.text }}
+            | {{ (idx !== item.links.length -1) && ', ' || '' }}
 
           span(v-for="tag in item.tags") , \#{{ tag }}
 </template>
@@ -73,6 +78,10 @@ a-row.projects
       .ant-card-meta-description {
         font-size: 15px;
         color: var(--color-text);
+
+        .ant-divider {
+          margin: 10px 0;
+        }
       }
     }
   }

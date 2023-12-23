@@ -124,19 +124,31 @@ a:hover:after {
   }
 }
 
-.ant-menu-horizontal {
-  border-bottom: 0;
+.header {
+  .ant-menu-horizontal {
+    border-bottom: 0;
 
-  * {
-    font-size: 16px;
-  }
+    * {
+      font-size: 16px;
+    }
 
-  .ant-menu-item {
-    &:first-child {
-      padding-inline-start: 0;
+    .ant-menu-item {
+      padding-inline: 8px;
 
       &::after {
-        inset-inline-start: 0;
+        inset-inline: 0px;
+      }
+
+      .ant-menu-title-content {
+        margin-inline-start: 6px !important;
+      }
+
+      &:first-child {
+        padding-inline-start: 0;
+
+        &::after {
+          inset-inline-start: 0;
+        }
       }
     }
   }
@@ -144,17 +156,6 @@ a:hover:after {
 
 .ant-card {
   line-height: normal;
-
-  .ant-card-body {
-    padding: 10px;
-
-    max-height: 120px;
-    // min-height: 120px;
-
-    // .ant-row {
-    //   height: 95px;
-    // }
-  }
 }
 
 .ant-row {

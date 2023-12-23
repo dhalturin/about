@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, computed, watch, h, ref } from 'vue'
 import { useRouter, useRoute, RouterView } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 import moment from 'moment'
 
@@ -17,24 +18,26 @@ import {
 import GmailIcon from './icons/IconGmail.vue'
 import TelegramIcon from './icons/IconTelegram.vue'
 
+const { t } = useI18n()
+
 const router = useRouter()
 const route = useRoute()
 
-const items = ref([
+const items = reactive([
   {
     icon: () => h(UserOutlined),
     key: '/',
-    label: 'About me',
+    label: 'about_0',
   },
   {
     icon: () => h(AuditOutlined),
     key: '/cv/',
-    label: 'CV',
+    label: 'cv',
   },
   {
     icon: () => h(AppstoreOutlined),
     key: '/projects/',
-    label: 'Projects',
+    label: 'projects',
   },
 ]);
 
@@ -95,12 +98,14 @@ div.header
     a-col(:span="24" :md="14")
       a-row(align="middle")
         a-col(:span="24")
-          h1(class="green") Hello.
-          p(style="font-size: 1.1em") My name is Denis Khalturin.
+          h1(class="green") {{ $t('hello') }}
+          p(style="font-size: 1.1em") {{ $t('my-name') }}
 
       a-row(align="middle")
         a-col(:span="24")
-          a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
+          //- a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
+          a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" @click="onOpenChange")
+            a-menu-item(v-for="item in items" :key="item.key") {{ $t(item.label) }}
 
   a-row(:gutter="[3, 3]")
     a-col.github(:span="24" :md="14" align="center")
@@ -178,6 +183,10 @@ div.header
 <style lang="scss">
 .tiles {
   .ant-card {
+    .ant-card-body {
+      padding: 10px;
+    }
+
     svg {
       transition: transform 200ms;
     }
@@ -192,6 +201,10 @@ div.header
 
 .github {
   .ant-card {
+    .ant-card-body {
+      padding: 10px;
+    }
+
     .ant-col {
       &:first-child {
         svg {

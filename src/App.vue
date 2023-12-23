@@ -1,5 +1,6 @@
 <script setup>
 import WrapperHeader from './components/WrapperHeader.vue'
+import Locales from './components/Locales.vue'
 
 const theme = {
   token: {
@@ -12,10 +13,14 @@ const theme = {
     colorLinkHover: '#333',
   }
 }
+
+// console.log(this.$i18n)
 </script>
 
 <template lang="pug">
 a-config-provider(:theme="theme")
+  Locales
+
   a-row(:style="{ height: '100vh'}" justify="center")
     a-row(:style="{ maxWidth: '1280px', padding: '24px', maxHeight: '100vh' }" align="middle")
       a-col(:span="24" :xl="10")
