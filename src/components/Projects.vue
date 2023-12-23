@@ -5,12 +5,10 @@ import { useI18n } from 'vue-i18n'
 import coverOpsgin from '@/assets/opsgin.png'
 import coverUiVmm from '@/assets/ui-vmm.jpg'
 
-const { t } = useI18n()
-
 const projects = ref([
   {
     name: 'opsgin',
-    desc: t('opsgin'),
+    desc: 'opsgin',
     cover: coverOpsgin,
     links: [
       { text: 'Repository', url: 'https://github.com/slack-utils/opsgin' },
@@ -19,19 +17,19 @@ const projects = ref([
   },
   {
     name: 'ui-vmm',
-    desc: t('uivmm'),
+    desc: 'uivmm',
     cover: coverUiVmm,
     links: [
-      { text: t('site'), url: 'https://ui-vmm.github.io' },
-      { text: t('demo'), url: 'https://ui-vmm.github.io/demo' },
+      { text: 'site', url: 'https://ui-vmm.github.io' },
+      { text: 'demo', url: 'https://ui-vmm.github.io/demo' },
     ],
     tags: ['golang', 'vuejs', 'grpc']
   },
   {
     name: 'SSHPass',
-    desc: t('sshpass'),
+    desc: 'sshpass',
     links: [
-      { text: t('repo'), url: 'https://github.com/dhalturin/sshpass' },
+      { text: 'repo', url: 'https://github.com/dhalturin/sshpass' },
     ],
     tags: ['c']
   },
@@ -47,12 +45,12 @@ a-row.projects
 
       a-card-meta(:title="item.name")
         template(#description)
-          div {{ item.desc }}
+          div {{ $t(item.desc) }}
 
           a-divider(dashed)
 
           span(v-for="(link, idx) in item.links")
-            a(:href="link.url" target="_blank") {{ link.text }}
+            a(:href="link.url" target="_blank") {{ $t(link.text) }}
             | {{ (idx !== item.links.length -1) && ', ' || '' }}
 
           span(v-for="tag in item.tags") , \#{{ tag }}
