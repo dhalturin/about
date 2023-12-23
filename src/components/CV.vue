@@ -21,6 +21,7 @@ const companies = ref([
     title: '3Commas',
     tags: [
       'aws',
+      'bash',
       'golang',
       'kubernets',
       'terraform',
@@ -38,6 +39,7 @@ const companies = ref([
       'alicloud',
       'ansible',
       'aws',
+      'bash',
       'groovy',
       'jenkins',
       'nginx',
@@ -59,6 +61,7 @@ const companies = ref([
     title: 'IQ Option',
     tags: [
       'ansible',
+      'bash',
       'gitlab',
       'golang',
       'grafana',
