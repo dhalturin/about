@@ -11,7 +11,6 @@ const localeIcons = {
 }
 
 const setLocale = (key) => {
-  console.log(key)
   localStorage.setItem('locale', key)
 
   locale.value = key
@@ -32,15 +31,15 @@ div.locale
 <style scoped lang="scss">
 .locale {
   position: absolute;
+  min-height: 80px;
+  min-width: 150px;
   right: 0;
   top: 0;
-  min-width: 150px;
-  min-height: 80px;
   z-index: 1;
 
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
 
   div {
     transform: scale(.7);
@@ -49,6 +48,14 @@ div.locale
     &.active {
       transform: scale(1);
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .locale {
+    flex-direction: column;
+    min-height: 150px;
+    min-width: 80px;
   }
 }
 </style>

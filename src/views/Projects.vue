@@ -9,7 +9,7 @@ div.projects
 
 <style scoped>
 .projects {
-  max-height: 100vh;
+  max-height: 80vh;
   margin: 20px 0;
 }
 
