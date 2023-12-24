@@ -11,7 +11,7 @@ const projects = ref([
     desc: 'opsgin',
     cover: coverOpsgin,
     links: [
-      { text: 'Repository', url: 'https://github.com/slack-utils/opsgin' },
+      { text: 'repo', url: 'https://github.com/slack-utils/opsgin' },
     ],
     tags: ['golang']
   },
