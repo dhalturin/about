@@ -1,5 +1,5 @@
 <template lang="pug">
-p {{ $t('about_1') }}
+p {{ $t('about_1', { tools: 'Bash / Python / Jinja / Groovy / Golang / Vuejs' }) }}
 p {{ $t('about_2') }}
 </template>
 

@@ -23,6 +23,7 @@ const companies = ref([
       'aws',
       'bash',
       'golang',
+      'helm',
       'kubernets',
       'terraform',
     ]
@@ -61,6 +62,7 @@ const companies = ref([
     title: 'IQ Option',
     tags: [
       'ansible',
+      'aws',
       'bash',
       'gitlab',
       'golang',
@@ -71,6 +73,7 @@ const companies = ref([
       'maas',
       'nginx',
       'postgresql',
+      'terraform',
       'vuejs',
     ]
   },

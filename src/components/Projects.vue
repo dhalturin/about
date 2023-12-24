@@ -3,7 +3,7 @@ import { ref, shallowRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import coverOpsgin from '@/assets/opsgin.png'
-import coverUiVmm from '@/assets/ui-vmm.jpg'
+import coverUiVmm from '@/assets/ui-vmm.png'
 
 const projects = ref([
   {
@@ -26,7 +26,7 @@ const projects = ref([
     tags: ['golang', 'vuejs', 'grpc']
   },
   {
-    name: 'SSHPass',
+    name: 'ssh pass',
     desc: 'sshpass',
     links: [
       { text: 'repo', url: 'https://github.com/dhalturin/sshpass' },
@@ -40,8 +40,8 @@ const projects = ref([
 a-row.projects
   a-col(:span="12" v-for="item in projects")
     a-card
-      template(#cover)
-        img(:src="item.cover")
+      template(#cover v-if="item.cover")
+        div(:style="{ backgroundImage: 'url(' + item.cover + ')' }")
 
       a-card-meta(:title="item.name")
         template(#description)
@@ -62,9 +62,19 @@ a-row.projects
     margin: 6px 12px;
 
     .ant-card-cover {
-      padding: 1px;
-      max-height: 90px;
+      margin: 0;
+      position: relative;
+      height: 100px;
       overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+
+      div {
+        min-height: 100px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 5px;
+      }
     }
 
     .ant-card-meta-detail {
