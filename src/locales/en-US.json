@@ -1,0 +1,15 @@
+{
+    "about_0": "About me",
+    "about_1": "I am a DevOps engineer currently based in Yerevan. I have been working with clouds for the last 7 years, mainly AWS. I also have experience working with AliCloud / Yandex Cloud / Selectel Cloud Platform. My experience includes building infrastructure using Terraform, preparing CI/CD and automating complex processes by writing scripts and utilities ({tools}).",
+    "about_2": "Outside of working and helping my wife take care of our three American Cocker Spaniels, I enjoy video games (Stronghold Crusader & Call of Duty are my favorite), Japanese and Chinese food, American football (for a long time I played in St. Petersburg and played for the Russian national team).",
+    "cv": "CV",
+    "demo": "Demo",
+    "hello": "Hello.",
+    "my-name": "My name is Denis Khalturin.",
+    "opsgin": "Utility for integrating on-duty Opsgenie and Slack",
+    "projects": "Projects",
+    "repo": "Repository",
+    "site": "Site",
+    "sshpass": "A fork of wonderful utility with added support of prompt for TOTP and Ansible",
+    "uivmm": "A convenient control panel for working with LXC containers via message transmission to GRPC providers"
+}
