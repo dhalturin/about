@@ -22,6 +22,7 @@ const companies = ref([
       'golang',
       'helm',
       'kubernets',
+      'fluxcd',
       'terraform',
       'pulumi',
     ]
