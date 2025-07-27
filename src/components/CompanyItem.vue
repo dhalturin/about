@@ -121,4 +121,29 @@ h3 {
   //   display: none;
   // }
 }
+
+@media print {
+  .item {
+    * {
+      margin: 0;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.item {
+  i {
+    div {
+      display: flex;
+      align-items: center;
+
+      border-radius: 5px;
+      height: 50px;
+      max-height: 50px;
+      overflow: hidden;
+      width: 50px;
+    }
+  }
+}
 </style>

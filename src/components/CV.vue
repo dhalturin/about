@@ -21,7 +21,7 @@ const companies = ref([
       'bash',
       'golang',
       'helm',
-      'kubernets',
+      'kubernetes',
       'fluxcd',
       'terraform',
       'pulumi',
@@ -135,10 +135,30 @@ const companies = ref([
     ],
   },
 ])
+
+const showModal = ref(false)
+const confirmPrint = () => {
+  showModal.value = false
+  setTimeout(() => {
+    window.print()
+  }, 200)
+}
 </script>
 
 <template lang="pug">
-CompanyItem(v-for="item in companies")
+button(@click="showModal = true" class="print-button") {{ $t('download') }}
+
+div(v-if="showModal" class="modal-overlay")
+  div(class="modal-content")
+    h3 {{ $t('download-title') }}
+    p {{ $t('download-body') }}
+    
+    div(class="modal-actions")
+      button(@click="confirmPrint" class="btn-confirm") {{ $t('ok') }}
+      button(@click="showModal = false" class="btn-cancel") {{ $t('cancel') }}
+
+
+CompanyItem(v-for="item in companies" class="companies")
   template(#icon)
     Component(:is="item.icon" v-if="item.icon")
 
@@ -153,3 +173,87 @@ CompanyItem(v-for="item in companies")
   div {{ item.desc }}
   span(v-for="(tag, idx) in item.tags") \#{{ tag + "" + ((idx !== item.tags.length -1) && ', ' || '') }}
 </template>
+
+<style lang="scss" scoped>
+.print-button {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.print-button:hover {
+  background-color: #3aa876;
+}
+
+/* Стили для модального окна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-confirm {
+  padding: 8px 16px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-confirm:hover {
+  background-color: #3aa876;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+/* Стили для печати */
+@media print {
+  .print-button, .modal-overlay {
+    display: none !important;
+  }
+}
+</style>

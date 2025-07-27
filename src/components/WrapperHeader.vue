@@ -92,22 +92,33 @@ githubGetEvents('dhalturin')
 
 <template lang="pug">
 div.header
-  a-row(align="middle" style="margin-bottom: 20px")
+  a-row(class="only-print")
+    a-col(:span="8" align="center")
+      img(class="photo" src="@/assets/photo.jpeg" width="130" height="130")
+    a-col(:span="16")
+      a-row(align="middle")
+        a-col(:span="24")
+          h3(class="green") {{ $t('my-name-2') }}
+          div danhalturin@gmail.com
+          div t.me/dhalturin
+          div linkedin.com/in/dhalturin
+
+  a-row(align="middle" class="no-print")
     a-col(:span="24" :md="10" align="center")
       img(class="photo" src="@/assets/photo.jpeg" width="180" height="180")
     a-col(:span="24" :md="14")
       a-row(align="middle")
         a-col(:span="24")
-          h1(class="green") {{ $t('hello') }}
-          p(style="font-size: 1.1em") {{ $t('my-name') }}
+          h1(class="green no-print") {{ $t('hello') }}
+          p(style="font-size: 1.1em") {{ $t('my-name-1') }} {{ $t('my-name-2') }}.
 
-      a-row(align="middle")
+      a-row(align="middle" class="no-print")
         a-col(:span="24")
           //- a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" :items="items" @click="onOpenChange")
           a-menu(style="font-size: .6em" v-model:selectedKeys="current" mode="horizontal" @click="onOpenChange")
             a-menu-item(v-for="item in items" :key="item.key") {{ $t(item.label) }}
 
-  a-row(:gutter="[3, 3]")
+  a-row(:gutter="[3, 3]" class="no-print")
     a-col.github(:span="24" :md="14" align="center")
       a-spin(:spinning="spinning")
         a(href="https://github.com/dhalturin" target="_blank")
@@ -118,7 +129,7 @@ div.header
               a-col(:span="18")
                 calendar-heatmap(:end-date="endDate", :values="heatmapValues", :round="2", :tooltip="false", :range-color="rangeColor")
 
-    a-col(:span="24" :md="10")
+    a-col(:span="24" :md="10" class="no-print")
       a-row.tiles(:gutter="[3, 3]")
         a-col(:span="12" align="center")
           a(href="mailto:danhalturin@gmail.com")
@@ -128,7 +139,7 @@ div.header
                   gmail-icon
 
         a-col(:span="12" align="center")
-          a(href="https://linkedin.com/in/dhalturin/" target="_blank")
+          a(href="https://linkedin.com/in/dhalturin" target="_blank")
             a-card
               a-row(align="middle")
                 a-col(:span="24")
@@ -164,6 +175,24 @@ div.header
 @media (max-width: 1024px) {
   .header {
     margin-right: 0;
+  }
+}
+
+@media print {
+  .header {
+    .ant-row {
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+      font-size: 20px;
+
+      .ant-col {
+        // flex-basis: unset;
+
+        .photo {
+          margin-right: 20px;
+        }
+      }
+    }
   }
 }
 

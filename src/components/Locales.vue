@@ -19,7 +19,7 @@ const setLocale = (key) => {
 </script>
 
 <template lang="pug">
-div.locale
+div(class="locale no-print")
   component(
     v-for="locale in $i18n.availableLocales"
     :class="{ active : (locale === $i18n.locale) }"

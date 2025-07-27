@@ -29,3 +29,24 @@ a-config-provider(:theme="theme")
       a-col(:span="24" :xl="14" :style="{textAlign: 'justify'}")
         RouterView
 </template>
+
+<style lang="scss">
+.only-print {
+  display: none;
+}
+
+@media print {
+  .only-print {
+    display: flex;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .companies {
+    font-size: 20px;
+    margin-bottom: 20px
+  }
+}
+</style>
